@@ -1,16 +1,23 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
-
-loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/dex.lua"))()
-
-local owner = "Upbolt"
-local branch = "revision"
-
-local function webImport(file)
-    return loadstring(game:HttpGetAsync(("https://raw.githubusercontent.com/%s/Hydroxide/%s/%s.lua"):format(owner, branch, file)), file .. '.lua')()
+if getgenv().IY == true then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
 end
 
-webImport("init")
-webImport("ui/main")
+if getgenv().DexV3 == true then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/dex.lua"))()
+end
+
+if getgenv().Hydroxide == true then
+    local owner = "Upbolt"
+    local branch = "revision"
+
+    local function webImport(file)
+        return loadstring(game:HttpGetAsync(("https://raw.githubusercontent.com/%s/Hydroxide/%s/%s.lua"):format(owner, branch, file)), file .. '.lua')()
+    end
+
+    webImport("init")
+    webImport("ui/main")
+end
+
 
 queue_on_teleport(game:HttpGet("https://raw.githubusercontent.com/Kepic1234/queue_DexHydroxideIY/refs/heads/main/Teleport"))
 
