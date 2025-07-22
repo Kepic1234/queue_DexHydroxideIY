@@ -17,7 +17,3 @@ if getgenv().Hydroxide == true then
     webImport("init")
     webImport("ui/main")
 end
-
-
-queue_on_teleport(game:HttpGet("https://raw.githubusercontent.com/Kepic1234/queue_DexHydroxideIY/refs/heads/main/Teleport"))
-
