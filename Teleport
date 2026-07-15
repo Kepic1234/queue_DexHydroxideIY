@@ -1,5 +1,5 @@
 if getgenv().ScriptConfig.["IY"] == true then
-    if not getgenv().ScriptConfig.Active.["IY"] == true then
+    if not getgenv().ScriptConfig.Active.["IY"] == true or getgenv().ScriptConfig.Active.["IY"] == nil  then
         getgenv().ScriptConfig.Active.["IY"] = true
         loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
     end
