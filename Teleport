@@ -1,27 +1,37 @@
+local Active = {
+        ["IY"]
+        ["Hydroxide"],
+        ["Cobalt"],
+        ["DexV3"],
+        ["latestDex"],
+    }
+
+
+
 if getgenv().ScriptConfig.["IY"] == true then
     if not getgenv().ScriptConfig.Active.["IY"] == true then
-        getgenv().ScriptConfig.Active.["IY"] = true
+        Active.["IY"] = true
         loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
     end
 end
 
 if getgenv().ScriptConfig.["DexV3"] == true then
     if not getgenv().ScriptConfig.Active.["DexV3"] == true then
-        getgenv().ScriptConfig.Active.["DexV3"] = true
+        Active.["DexV3"] = true
         loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/dex.lua"))()
     end
 end
 
 if getgenv().ScriptConfig.["latestDex"] == true then
     if not getgenv().ScriptConfig.Active.["latestDex"] == true then
-        getgenv().ScriptConfig.Active.["latestDex"] = true
+        Active.["latestDex"] = true
         loadstring(game:HttpGet("https://github.com/AZYsGithub/DexPlusPlus/releases/latest/download/out.lua"))()
     end
 end
 
 if getgenv().ScriptConfig.["Hydroxide"] == true then
     if not getgenv().ScriptConfig.Active.["Hydroxide"] == true then
-        getgenv().ScriptConfig.Active.["Hydroxide"] = true
+        Active.["Hydroxide"] = true
 
         local owner = "Upbolt"
         local branch = "revision"
@@ -37,7 +47,18 @@ end
 
 if getgenv().ScriptConfig.["Cobalt"] == true then
     if not getgenv().ScriptConfig.Active.["Cobalt"] == true then
-        getgenv().ScriptConfig.Active.["Cobalt"] = true
+        Active.["Cobalt"] = true
         loadstring(game:HttpGet("https://github.com/notpoiu/cobalt/releases/latest/download/Cobalt.luau"))()
     end
 end
+
+getgenv().ScriptConfig = {
+
+    Active = {
+        ["IY"] = Active.["IY"]
+        ["Hydroxide"] = truActive.["Hydroxide"],
+        ["Cobalt"] = Active.["Cobalt"],
+        ["DexV3"] = Active.["DexV3"],
+        ["latestDex"] = Active.["latestDex"],
+    }
+}
