@@ -7,10 +7,12 @@ local function exec(name, script)
     end
 end
 
-exec("IY", loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))())
+exec("IY", function() 
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
+end)
 
 
-exec("Hydroxide", 
+exec("Hydroxide", function () 
         local owner = "Upbolt"
         local branch = "revision"
         
@@ -20,16 +22,22 @@ exec("Hydroxide",
         
         webImport("init")
         webImport("ui/main")
-    )
+    end)
 
 
-exec("Cobalt", loadstring(game:HttpGet("https://github.com/notpoiu/cobalt/releases/latest/download/Cobalt.luau"))())
+exec("Cobalt", function() 
+    loadstring(game:HttpGet("https://github.com/notpoiu/cobalt/releases/latest/download/Cobalt.luau"))()
+end)
 
 
-exec("DexV3", loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/dex.lua"))())
+exec("DexV3", function() 
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/dex.lua"))()
+end)
 
 
-exec("latestDex", loadstring(game:HttpGet("https://github.com/AZYsGithub/DexPlusPlus/releases/latest/download/out.lua"))())
+exec("latestDex", function() 
+    loadstring(game:HttpGet("https://github.com/AZYsGithub/DexPlusPlus/releases/latest/download/out.lua"))()
+end)
 
 
 
