@@ -5,7 +5,7 @@ local Active = getgenv().ActiveModules or {}
 local function exec(name, script)
     if ScriptConfig[name] == true and not Active[name] then
         Active[name] = true
-        script
+        script()
     end
 end
 
