@@ -1,38 +1,16 @@
-local Active = {
-        ["IY"],
-        ["Hydroxide"],
-        ["Cobalt"],
-        ["DexV3"],
-        ["latestDex"],
-    }
+local Active = getgenv().ActiveModules or {}
 
-
-
-if getgenv().ScriptConfig.["IY"] == true then
-    if not getgenv().ScriptConfig.Active.["IY"] == true then
-        Active.["IY"] = true
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
+local function exec(name, script)
+    if ScriptConfig[name] == true and not Active[name] then
+        Active[name] = true
+        script
     end
 end
 
-if getgenv().ScriptConfig.["DexV3"] == true then
-    if not getgenv().ScriptConfig.Active.["DexV3"] == true then
-        Active.["DexV3"] = true
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/dex.lua"))()
-    end
-end
+exec("IY", loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))())
 
-if getgenv().ScriptConfig.["latestDex"] == true then
-    if not getgenv().ScriptConfig.Active.["latestDex"] == true then
-        Active.["latestDex"] = true
-        loadstring(game:HttpGet("https://github.com/AZYsGithub/DexPlusPlus/releases/latest/download/out.lua"))()
-    end
-end
 
-if getgenv().ScriptConfig.["Hydroxide"] == true then
-    if not getgenv().ScriptConfig.Active.["Hydroxide"] == true then
-        Active.["Hydroxide"] = true
-
+exec("Hydroxide", 
         local owner = "Upbolt"
         local branch = "revision"
         
@@ -42,23 +20,18 @@ if getgenv().ScriptConfig.["Hydroxide"] == true then
         
         webImport("init")
         webImport("ui/main")
-    end
-end
+    )
 
-if getgenv().ScriptConfig.["Cobalt"] == true then
-    if not getgenv().ScriptConfig.Active.["Cobalt"] == true then
-        Active.["Cobalt"] = true
-        loadstring(game:HttpGet("https://github.com/notpoiu/cobalt/releases/latest/download/Cobalt.luau"))()
-    end
-end
 
-getgenv().ScriptConfig = {
+exec("Cobalt", loadstring(game:HttpGet("https://github.com/notpoiu/cobalt/releases/latest/download/Cobalt.luau"))())
 
-    Active = {
-        ["IY"] = Active.["IY"]
-        ["Hydroxide"] = truActive.["Hydroxide"],
-        ["Cobalt"] = Active.["Cobalt"],
-        ["DexV3"] = Active.["DexV3"],
-        ["latestDex"] = Active.["latestDex"],
-    }
-}
+
+exec("DexV3", loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/dex.lua"))())
+
+
+exec("latestDex", loadstring(game:HttpGet("https://github.com/AZYsGithub/DexPlusPlus/releases/latest/download/out.lua"))())
+
+
+
+getgenv().ActiveModules = Active
+getgenv().ScriptConfig = ScriptConfig
