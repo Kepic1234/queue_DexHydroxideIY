@@ -1,3 +1,5 @@
+local ScriptConfig = getgenv().ScriptConfig or {}
+
 local Active = getgenv().ActiveModules or {}
 
 local function exec(name, script)
