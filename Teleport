@@ -1,6 +1,6 @@
-local ScriptConfig = getgenv().ScriptConfig 
+local ScriptConfig = getgenv().ScriptConfig or {}
 
-local Active = getgenv().ActiveModules
+local Active = getgenv().ActiveModules or {}
 
 local function exec(name, script)
     if ScriptConfig[name] == true and not Active[name] then
